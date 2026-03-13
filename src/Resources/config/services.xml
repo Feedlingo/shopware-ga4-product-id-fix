@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults autowire="true" autoconfigure="true" public="false"/>
+
+        <service id="Ga4ItemIdFix\Subscriber\ResponseInjectSubscriber">
+            <argument type="service" id="router"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Ga4ItemIdFix\Controller\Ga4ItemIdFixController" public="true">
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="order.repository"/>
+            <tag name="controller.service_arguments"/>
+        </service>
+    </services>
+</container>

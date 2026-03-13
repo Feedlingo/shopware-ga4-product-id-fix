@@ -1,0 +1,33 @@
+{
+  "name": "custom/ga4-itemid-fix",
+  "description": "Theme-independent GA4 Item-ID Fix: replaces Shopware UUIDs with product numbers (SKU) in Shopware built-in analytics (GA4).",
+  "version": "1.5.19",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Feedlingo"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "shopware/core": "~6.5.0 || ~6.6.0 || ~6.7.0",
+    "shopware/storefront": "~6.5.0 || ~6.6.0 || ~6.7.0"
+  },
+  "extra": {
+    "shopware-plugin-class": "Ga4ItemIdFix\\Ga4ItemIdFix",
+    "label": {
+      "de-DE": "GA4 Item-ID Fix (SKU statt UUID)",
+      "en-GB": "GA4 Item-ID Fix (SKU instead of UUID)"
+    },
+    "description": {
+      "de-DE": "Theme-unabh\u00e4ngig: ersetzt Shopware-UUIDs durch Artikelnummern (SKU) in GA4 Events (integriertes Shopware Analytics).",
+      "en-GB": "Theme-independent: replaces Shopware UUIDs with product numbers (SKU) in GA4 events (Shopware built-in analytics)."
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Ga4ItemIdFix\\": "src/"
+    }
+  }
+}
