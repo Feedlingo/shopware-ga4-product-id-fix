@@ -1,72 +1,97 @@
-# Ga4ItemIdFix v1.4.0
+# Feedlingo GA4 Product ID Fix for Shopware
 
-Zenith Stratus 5.5.4 kompatibel (theme-unabhängig):
-- Injiziert Script per Kernel Response-Subscriber in jede Storefront-HTML Seite (vor </head>)
-- Patcht dataLayer.push und ersetzt UUIDs durch SKU (Artikelnummer)
-- Holt SKU bei Bedarf per Endpoint:
-  POST /ga4-itemid-fix/map  { "ids": ["<32hex>", ...] } -> { ok: true, map: { "<id>":"<sku>" } }
+Free Shopware 6 plugin that replaces internal Shopware UUID product IDs with real product numbers (productNumber / SKU) in Google Analytics 4 ecommerce tracking.
 
-Check:
-- Produktseite hard reload (Strg+F5)
-- Konsole: window.__ga4ItemIdFixInlineLoaded === true
+Developed by **Feedlingo**  
+https://www.feedlingo.de
 
+---
 
-## Changelog v1.4.1
-- Fix: routes.xml hinzugefügt, damit der Storefront-Endpoint registriert ist.
-- Fix: Response-Injector nutzt feste Endpoint-URL, um 500er bei Routing-Problemen zu vermeiden.
+## Download
 
+The plugin can be downloaded from the official Feedlingo website:
 
-## Changelog v1.4.2
-- Fix: Storefront-Endpoint ist CSRF-unprotected (POST/GET), damit fetch nicht mit 403 scheitert.
-- Debug: window.__ga4ItemIdFixLastFetch zeigt den letzten Endpoint-Status.
+https://www.feedlingo.de/ga4-product-id-fix-fur-shopware/?lang=en
 
+---
 
-## Changelog v1.4.3
-- Debug: window.__ga4ItemIdFixVersion + Response-Header X-GA4-ItemId-Fix-Version
-- Fix: dataLayer wrapper unterstützt gtag() Arguments-Objekte.
-- Cache-Control no-cache Header bei injizierten Seiten.
+## Problem
 
+Many Shopware 6 stores send internal Shopware UUID product IDs in ecommerce tracking events.
 
-## Changelog v1.4.4
-- Fix: Injection wird nicht mehr durch vorhandenes altes Marker-Script blockiert (Storefront HTTP Cache). Version-Guard verhindert doppelte Ausführung.
+These UUIDs do not match the product IDs used in product feeds, Google Merchant Center or external systems. As a result, ecommerce tracking reports in Google Analytics 4 can contain product IDs that cannot easily be matched with real products in the shop.
 
+This makes analysis of ecommerce data more difficult and can cause inconsistencies between tracking data and product feeds.
 
-## Changelog v1.4.6
-- Fix: Parse Error behoben (Controller sauber neu geschrieben).
-- Fix: Endpoint map() akzeptiert GET/POST ids, normalisiert 32-hex + hyphenated und nutzt Fallback-Suche.
+---
 
+## Solution
 
-## Changelog v1.4.7
-- Fix: Injection wird jetzt VOR Shopware Analytics Bootstrap platziert (Suche nach window.gtagActive/gtagURL/dataLayer), damit dataLayer vor den ersten Events gepatcht ist.
+Feedlingo GA4 Product ID Fix replaces the internal Shopware UUID with the actual product number (productNumber / SKU) inside ecommerce tracking events.
 
+Instead of sending a Shopware UUID as the product identifier, the plugin automatically sends the real product number used in the shop.
 
-## Changelog v1.4.8
-- Fix: Injection-Position ist wieder sicher (direkt nach <head>-Tag), verhindert SyntaxErrors durch Einfügen innerhalb bestehender <script>-Tags.
+This ensures that product IDs in tracking data correspond to the actual product numbers used in the shop and in product feeds.
 
+---
 
-## Changelog v1.4.9
-- Fix: Wenn UUID->SKU bereits im Cache ist, wird add_to_cart etc. jetzt synchron umgeschrieben (kein erneuter Fetch nötig).
+## Features
 
+- Fixes incorrect product IDs in GA4 ecommerce tracking
+- Replaces Shopware UUIDs with real product numbers (SKU / productNumber)
+- Works with Google Analytics 4
+- Compatible with Google Tag Manager
+- Lightweight implementation
+- No database changes
+- No modification of shop data
 
-## Changelog v1.5.0
-- Verbesserung: Item-Erkennung jetzt checkout-sicher durch Deep-Scan nach items-Arrays (zusätzlich zu den bekannten GA4-Strukturen).
+---
 
+## Compatibility
 
-## Changelog v1.5.2
-- Fix: Parent-SKU Mapping für Varianten (Schuhgröße etc.).
-- Fix: Plugin basiert wieder auf stabilem 1.5.0 Stand; kein Syntax-Fehler mehr.
+The plugin is compatible with:
 
+- Shopware 6.5  
+- Shopware 6.6  
+- Shopware 6.7  
 
-## Changelog v1.5.5
-- Fix: Zurück zum stabilen Event-Patching (dataLayer.push Wrapper wie v1.4.9), damit Tag Assistant/GA4 Hits nicht ausfallen.
-- Feature: Parent-SKU Mapping für Varianten bleibt aktiv (wie v1.5.2).
+---
 
+## Installation
 
-## Changelog v1.5.6
-- Fix: Bereits vorhandene dataLayer-Einträge werden nachträglich umgeschrieben (falls Events vor unserem Wrapper gefeuert wurden).
+1. Download the plugin from the Feedlingo website  
+2. Log in to the Shopware administration panel  
+3. Go to **Extensions → My Extensions**  
+4. Upload the plugin ZIP file  
+5. Install and activate the plugin  
+6. Clear the shop cache  
 
+After activation the plugin works automatically.
 
-## Changelog v1.5.7
-- Entscheidung: Varianten-SKU beibehalten (größenabhängig) für konsistente IDs mit Merchant Center/Benchmarks.
-- Endpoint liefert immer Product.productNumber (keine Parent-SKU-Zusammenfassung).
-- Enthält weiterhin Deep-Scan + Retroactive Fix für frühe Events (Checkout-sicher).
+---
+
+## Safety
+
+The plugin was designed to be completely non-destructive.
+
+It does not modify:
+
+- products
+- orders
+- database records
+
+The plugin only replaces product IDs inside ecommerce tracking events in the storefront.
+
+---
+
+## Website
+
+More tools and updates are available at:
+
+https://www.feedlingo.de
+
+---
+
+## License
+
+MIT License
