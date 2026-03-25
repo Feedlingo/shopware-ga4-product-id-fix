@@ -1,12 +1,28 @@
 {
   "name": "custom/ga4-itemid-fix",
-  "description": "Theme-independent GA4 Item-ID Fix: replaces Shopware UUIDs with product numbers (SKU) in Shopware built-in analytics (GA4).",
-  "version": "1.5.19",
+  "description": "Feedlingo GA4 Product ID Fix for Shopware: replaces Shopware UUID item IDs with real product numbers in storefront ecommerce tracking.",
+  "version": "2.0.0",
   "type": "shopware-platform-plugin",
   "license": "MIT",
+  "keywords": [
+    "shopware",
+    "ga4",
+    "google analytics",
+    "google ads",
+    "merchant center",
+    "remarketing",
+    "product id",
+    "sku"
+  ],
+  "homepage": "https://www.feedlingo.de",
+  "support": {
+    "source": "https://www.feedlingo.de",
+    "issues": "https://www.feedlingo.de"
+  },
   "authors": [
     {
-      "name": "Feedlingo"
+      "name": "Feedlingo",
+      "homepage": "https://www.feedlingo.de"
     }
   ],
   "require": {
@@ -17,12 +33,12 @@
   "extra": {
     "shopware-plugin-class": "Ga4ItemIdFix\\Ga4ItemIdFix",
     "label": {
-      "de-DE": "GA4 Item-ID Fix (SKU statt UUID)",
-      "en-GB": "GA4 Item-ID Fix (SKU instead of UUID)"
+      "de-DE": "Feedlingo GA4 Product ID Fix",
+      "en-GB": "Feedlingo GA4 Product ID Fix"
     },
     "description": {
-      "de-DE": "Theme-unabh\u00e4ngig: ersetzt Shopware-UUIDs durch Artikelnummern (SKU) in GA4 Events (integriertes Shopware Analytics).",
-      "en-GB": "Theme-independent: replaces Shopware UUIDs with product numbers (SKU) in GA4 events (Shopware built-in analytics)."
+      "de-DE": "Ersetzt Shopware UUID-Produkt-IDs in Tracking-Ausgaben durch echte Produktnummern (SKU / productNumber) für GA4 und viele dataLayer-basierte Google-Ads-/Remarketing-Setups. Sicher: keine Änderungen an Produkten, Bestellungen oder Shopdaten. Mehr Infos: www.feedlingo.de",
+      "en-GB": "Replaces Shopware UUID product IDs in tracking output with real product numbers (SKU / productNumber) for GA4 and many dataLayer-based Google Ads / remarketing setups. Safe: does not modify products, orders, or shop data. More info: www.feedlingo.de"
     }
   },
   "autoload": {

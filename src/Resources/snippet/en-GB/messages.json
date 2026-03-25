@@ -1,0 +1,6 @@
+{
+  "feedlingo-ga4-product-id-fix": {
+    "title": "Feedlingo GA4 Product ID Fix",
+    "description": "Replaces Shopware UUID product IDs with real product numbers (productNumber / SKU) for GA4 and many Google Ads / remarketing setups. More info: www.feedlingo.de"
+  }
+}

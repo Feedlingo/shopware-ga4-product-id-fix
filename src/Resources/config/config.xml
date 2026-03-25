@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Plugin Information</title>
+        <title lang="de-DE">Plugin-Informationen</title>
+
+        <input-field type="text">
+            <name>pluginStatusInfo</name>
+            <label>Status</label>
+            <label lang="de-DE">Status</label>
+            <defaultValue>Active after installation and activation. No configuration is required.</defaultValue>
+            <defaultValue lang="de-DE">Nach Installation und Aktivierung automatisch aktiv. Es ist keine Konfiguration erforderlich.</defaultValue>
+            <helpText>Information only.</helpText>
+            <helpText lang="de-DE">Nur Information.</helpText>
+            <disabled>true</disabled>
+        </input-field>
+
+        <input-field type="text">
+            <name>pluginOverviewInfo</name>
+            <label>Overview</label>
+            <label lang="de-DE">Überblick</label>
+            <defaultValue>Replaces Shopware UUID product IDs in storefront ecommerce tracking output with real product numbers (SKU / productNumber).</defaultValue>
+            <defaultValue lang="de-DE">Ersetzt Shopware UUID-Produkt-IDs in der Storefront-Tracking-Ausgabe durch echte Produktnummern (SKU / productNumber).</defaultValue>
+            <helpText>Suitable for GA4 and many dataLayer-based Google Ads or remarketing setups.</helpText>
+            <helpText lang="de-DE">Geeignet für GA4 und viele dataLayer-basierte Google-Ads- oder Remarketing-Setups.</helpText>
+            <disabled>true</disabled>
+        </input-field>
+
+        <input-field type="text">
+            <name>pluginSafetyInfo</name>
+            <label>Safety</label>
+            <label lang="de-DE">Sicherheit</label>
+            <defaultValue>Does not modify products, orders, customers, or other shop data.</defaultValue>
+            <defaultValue lang="de-DE">Verändert keine Produkte, Bestellungen, Kunden oder andere Shopdaten.</defaultValue>
+            <helpText>Only adjusts tracking-related storefront response output.</helpText>
+            <helpText lang="de-DE">Passt ausschließlich trackingbezogene Ausgaben in der Storefront-Response an.</helpText>
+            <disabled>true</disabled>
+        </input-field>
+
+        <input-field type="url">
+            <name>feedlingoUrl</name>
+            <label>Website</label>
+            <label lang="de-DE">Website</label>
+            <defaultValue>https://www.feedlingo.de</defaultValue>
+            <helpText>Documentation, updates and more information.</helpText>
+            <helpText lang="de-DE">Dokumentation, Updates und weitere Informationen.</helpText>
+            <copyable>true</copyable>
+            <disabled>true</disabled>
+        </input-field>
+    </card>
+</config>
