@@ -1,97 +1,157 @@
 # Feedlingo GA4 Product ID Fix for Shopware
 
-Free Shopware 6 plugin that replaces internal Shopware UUID product IDs with real product numbers (productNumber / SKU) in Google Analytics 4 ecommerce tracking.
+🔥 Fix incorrect Shopware UUID product IDs in GA4, GTM and Google Ads tracking.
 
-Developed by **Feedlingo**  
-https://www.feedlingo.de
-
----
-
-## Download
-
-The plugin can be downloaded from the official Feedlingo website:
-
-https://www.feedlingo.de/ga4-product-id-fix-fur-shopware/?lang=en
+Many Shopware 6 stores send internal UUIDs instead of real product numbers in ecommerce tracking.  
+This plugin replaces those UUIDs with real product IDs (SKU / productNumber).
 
 ---
 
-## Problem
+## 🚀 New in version 2.0.0
 
-Many Shopware 6 stores send internal Shopware UUID product IDs in ecommerce tracking events.
+- Purchase event handling fixed  
+- Item ID fix now works reliably during checkout  
+- Improved stability for order and line-item processing  
 
-These UUIDs do not match the product IDs used in product feeds, Google Merchant Center or external systems. As a result, ecommerce tracking reports in Google Analytics 4 can contain product IDs that cannot easily be matched with real products in the shop.
-
-This makes analysis of ecommerce data more difficult and can cause inconsistencies between tracking data and product feeds.
-
----
-
-## Solution
-
-Feedlingo GA4 Product ID Fix replaces the internal Shopware UUID with the actual product number (productNumber / SKU) inside ecommerce tracking events.
-
-Instead of sending a Shopware UUID as the product identifier, the plugin automatically sends the real product number used in the shop.
-
-This ensures that product IDs in tracking data correspond to the actual product numbers used in the shop and in product feeds.
+👉 Download:  
+https://www.feedlingo.de/ga4-product-id-fix-fur-shopware/
 
 ---
 
-## Features
+## The Problem
 
-- Fixes incorrect product IDs in GA4 ecommerce tracking
-- Replaces Shopware UUIDs with real product numbers (SKU / productNumber)
-- Works with Google Analytics 4
-- Compatible with Google Tag Manager
-- Lightweight implementation
-- No database changes
-- No modification of shop data
+In many Shopware 6 setups, ecommerce tracking sends internal **Shopware UUIDs** instead of real product identifiers.
 
----
+These UUIDs do not match the product IDs used in:
 
-## Compatibility
+- your Shopware catalog  
+- Google Merchant Center  
+- product feeds  
+- Google Ads / remarketing setups  
 
-The plugin is compatible with:
+This typically leads to:
 
-- Shopware 6.5  
-- Shopware 6.6  
-- Shopware 6.7  
+- incorrect GA4 product reports  
+- difficult data analysis  
+- mismatches between tracking data and product feeds  
+- unreliable remarketing setups  
 
 ---
 
-## Installation
+## The Solution
 
-1. Download the plugin from the Feedlingo website  
-2. Log in to the Shopware administration panel  
-3. Go to **Extensions → My Extensions**  
-4. Upload the plugin ZIP file  
-5. Install and activate the plugin  
-6. Clear the shop cache  
+The plugin **Feedlingo GA4 Product ID Fix** automatically replaces Shopware UUIDs with real product numbers (**productNumber / SKU**).
 
-After activation the plugin works automatically.
+This ensures:
+
+- consistent product IDs across tracking and feeds  
+- correct GA4 ecommerce reporting  
+- clean data for analysis and marketing  
+
+---
+
+## What the Plugin Does
+
+The plugin operates only on ecommerce tracking output in the storefront.
+
+- replaces UUID → real product number  
+- corrects item IDs in tracking events  
+- works automatically (no configuration required)  
+- does not interfere with shop logic  
+
+---
+
+## Google Ads Relevance
+
+Correct product IDs are essential for many marketing setups.
+
+This includes:
+
+- GA4-based reporting  
+- GTM-based tracking  
+- remarketing setups  
+- product-based campaign analysis  
+
+👉 Important:  
+The plugin ensures correct IDs in tracking data.  
+How Google Ads uses that data depends on your specific implementation.
 
 ---
 
 ## Safety
 
-The plugin was designed to be completely non-destructive.
+The plugin is designed to be safe and non-destructive.
 
-It does not modify:
+It:
 
-- products
-- orders
-- database records
+- does **not** modify products  
+- does **not** modify orders  
+- does **not** write to the database for the tracking fix  
+- does **not** change shop configuration  
 
-The plugin only replaces product IDs inside ecommerce tracking events in the storefront.
+👉 It only adjusts product IDs in tracking output.
 
 ---
 
-## Website
+## Compatibility
 
-More tools and updates are available at:
+Compatible with:
 
+- Shopware 6.5  
+- Shopware 6.6  
+- Shopware 6.7  
+
+Works with:
+
+- Google Analytics 4 (GA4)  
+- Google Tag Manager (GTM)  
+- dataLayer-based ecommerce tracking  
+
+---
+
+## Installation
+
+1. Download the plugin ZIP  
+2. Log in to your Shopware Admin  
+3. Go to **Extensions → My Extensions**  
+4. Click **Upload extension**  
+5. Upload the ZIP file  
+6. Install and activate the plugin  
+7. Clear the shop cache  
+
+👉 The plugin works automatically after activation.
+
+---
+
+## How to Verify
+
+1. Open your shop with your tracking setup  
+2. Use GA4 DebugView, Tag Assistant or GTM preview  
+3. Trigger ecommerce events (view item, add to cart, purchase)  
+4. Check that item IDs are **product numbers (SKU)** instead of UUIDs  
+
+---
+
+## Changelog
+
+### 2.0.0
+
+- purchase event handling fixed  
+- item ID fix now works reliably during checkout  
+- improved stability for order and line-item processing  
+- internal refactoring  
+
+---
+
+## Developer
+
+**Feedlingo**  
 https://www.feedlingo.de
 
 ---
 
-## License
+## ⭐ Support
 
-MIT License
+If this plugin helps you, consider giving it a star on GitHub.
+
+👉 https://github.com/Feedlingo/shopware-ga4-product-id-fix
